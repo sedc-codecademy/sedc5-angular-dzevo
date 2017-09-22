@@ -1,22 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { ProductListComponent } from "./product/product-list.component";
-import { GeneratedComponent} from "./generated/generated.component";
+import { MainComponent, COMPONENTS } from "./";
+import {AccordionModule} from "ngx-bootstrap";
 let moduleInfo = {
   declarations: [
-    AppComponent,
-    ProductListComponent,
-    GeneratedComponent
+    MainComponent,
+    ...COMPONENTS
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AccordionModule.forRoot()
   ],
   providers: [],
-  bootstrap: [ AppComponent, ProductListComponent,
-  GeneratedComponent ]
+  bootstrap: [ MainComponent ]
 };
 
 @NgModule(moduleInfo)
 export class AppModule { }
+
+
+var a ={};
+var b = {...a};
+b= {};
+
+let arr1=[a,b];
+let arrCopy = [...arr1];

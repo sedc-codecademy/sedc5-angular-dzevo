@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: "products",
@@ -9,12 +9,19 @@ export class ProductsComponent {
     private title: string = "asdqwerty";
     private buttonText: string = "click me";
     private product: Product = Product.empty();
+    private counter: number = 0;
 
-    handleClick(e: any): void {
-        console.log(e);
+    @Input()
+    private inputText: string = "";
+
+    
+    handleClick(e: MouseEvent): void {
+        e.stopPropagation();
+        e.preventDefault();
+        //this.inputText = "asdasd";
+        //this.counter++;
+        console.log(this.inputText);
     }
-
-
 }
 
 

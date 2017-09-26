@@ -1,26 +1,34 @@
-import { Component, Input } from "@angular/core";
+import { ElementRef, EventEmitter, Component, Input, Output, ViewChild } from "@angular/core";
 
 @Component({
     selector: "products",
     templateUrl: "./products.component.html"
 })
 export class ProductsComponent {
-    inputData: string = "some initial input "
-    private title: string = "asdqwerty";
     private buttonText: string = "click me";
-    private product: Product = Product.empty();
-    private counter: number = 0;
 
     @Input()
-    private inputText: string = "";
+    private productChild: Product = Product.empty();
 
-    
+    @Output()
+    productChanged: EventEmitter<Product> = new EventEmitter();
+
+    @Input()
+    private inputText: string = "asd";
+
+    @ViewChild("clickMeButton")
+    button: ElementRef;
+
+
     handleClick(e: MouseEvent): void {
         e.stopPropagation();
         e.preventDefault();
-        //this.inputText = "asdasd";
-        //this.counter++;
-        console.log(this.inputText);
+
+        console.log(this.button.nativeElement);
+
+        // let productToBeEmittedToParent: Product = { id: this.inputText };
+        // this.productChanged.emit(productToBeEmittedToParent);
+
     }
 }
 

@@ -1,10 +1,8 @@
 <div>
-    <p>title: {{ title }}</p>
-    <input type="text" [value]="inputData" />
-    <h1>{{ product.id }}</h1>
-    <button (click)="handleClick($event)">{{ "counter " + counter }}</button>
+    <h1>{{productChild.id }}</h1>
+    <button #clickMeButton (click)="handleClick($event)">{{ "counter " + counter }}</button>
 
-    <input type="text" placeholder="type some text here" [(ngModel)]="inputText" />
+    <input type="text" [(ngModel)]="inputText" />
     <p>the value of the input is: {{inputText}}</p>
 
 </div>

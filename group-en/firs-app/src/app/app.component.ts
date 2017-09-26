@@ -1,18 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'blank-component',
-  template: `
-<div>
-  <products></products>
-  <products></products>
-  <products></products>
-  <products></products>
-  <users></users>
-</div>
-
-  `
+  selector: 'app-root',
+  templateUrl: "./app.component.html"
 })
 export class AppComponent {
-  
+
 }

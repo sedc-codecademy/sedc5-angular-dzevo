@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AccordionModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from "./components/products/products.component";
-import { UsersComponent } from "./users/users.component";
+import { UsersComponent } from "./components/users/users.component";
+
 let obj = {
   declarations: [
     AppComponent,

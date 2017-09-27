@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Product } from "../../models/product"
 
 @Component({
@@ -6,14 +6,13 @@ import { Product } from "../../models/product"
     templateUrl: "./product.component.html"
 })
 export class ProductComponent {
-
+    
+    @Input()
     product: Product = Product.empty(); 
+
     someText: string = "hello";
 
-
     constructor(){
-        this.product = new Product();
-        this.product.name = "ketchup";
-        this.product.id = "asdasd";
+       
     }
 }

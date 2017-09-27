@@ -3,9 +3,7 @@ import {AccordionComponent} from "ngx-bootstrap";
 @Component({
   selector: "main-component",
   template:`
-  <product></product>
-<app-generated></app-generated>  
-    
+  <order></order>
   `
 })
 export class MainComponent {

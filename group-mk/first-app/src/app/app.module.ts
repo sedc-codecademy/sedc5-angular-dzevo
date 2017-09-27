@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { MainComponent,GeneratedComponent, COMPONENTS } from "./";
-import {AccordionModule} from "ngx-bootstrap";
+import {AccordionModule,ModalModule} from "ngx-bootstrap";
 let moduleInfo = {
   declarations: [
     MainComponent,

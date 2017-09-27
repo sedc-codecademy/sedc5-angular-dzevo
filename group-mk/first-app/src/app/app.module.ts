@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { MainComponent, COMPONENTS } from "./";
+import { MainComponent,  COMPONENTS } from "./";
 import {AccordionModule} from "ngx-bootstrap";
 let moduleInfo = {
   declarations: [
@@ -10,7 +11,8 @@ let moduleInfo = {
   ],
   imports: [
     BrowserModule,
-    AccordionModule.forRoot()
+    FormsModule
+   // AccordionModule.forRoot()
   ],
   providers: [],
   bootstrap: [ MainComponent ]

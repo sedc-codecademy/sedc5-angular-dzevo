@@ -1,26 +1,35 @@
 <div *ngIf="todoItem" class="container">
     <h1>asd{{todoItem.title}}</h1>
-    <form #todoForm="ngForm">
+    <form (submit)="handleSubmit($event)" [formGroup]="todoForm">
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="titleInput">Title: </label>
-                    <input  (keydown.Alt.C)="cancel()" (keydown.Alt.S)="submit()" id="titleInput" [(ngModel)]="todoItem.title" name="title" class="form-control" required />
+                    <input formControlName="title" (keydown.Alt.C)="cancel()" (keydown.Alt.S)="submit()" id="titleInput"class="form-control" required />
                 </div>
             </div>
             <div [hidden]="isControlValid(todoForm,'title')" class="col-md-4">
                 <h2>Invalid input</h2>
             </div>
+            <div class="row">&nbsp;</div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="descriptionInput">Description: </label>
-                    <input  (keydown.Alt.C)="cancel()" (keydown.Alt.S)="submit()" id="descriptionInput" [(ngModel)]="todoItem.description" name="description" class="form-control" required />
+                    <input formControlName="description" (keydown.Alt.C)="cancel()" (keydown.Alt.S)="submit()" id="descriptionInput"class="form-control" required />
                 </div>
             </div>
             <div [hidden]="isControlValid(todoForm,'description')" class="col-md-4">
                 <h2>Invalid input</h2>
             </div>
-            <button [disabled]="!todoForm.valid" class="btn btn-info" (click)="submit()">submit</button>
+            <div class="row">&nbsp;</div>
+            <div class="col-md-4">
+                
+            <button [disabled]="!todoForm.valid" class="btn btn-info" (click)="submit()">button submit</button>
         </div>
+        </div>
+        <p>Form title: {{ todoForm.value.title | json }}</p>
+        <p>Form description: {{ todoForm.value.description | json }}</p>
+        <p>Form value: {{ todoForm.value| json }}</p>
+        <p>Form submit event: {{ submitEvent| json }}</p>
     </form>
 </div>

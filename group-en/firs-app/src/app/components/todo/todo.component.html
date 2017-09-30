@@ -1,11 +1,17 @@
 <div class="container">
-    <form>
+    <p>{{info()}}</p>
+    <form #todoForm="ngForm">
         <div class="form-group">
             <label for="title">Title</label>
-            <input [(ngModel)]="todo.title" type="text" id="title" name="title" placeholder="title" required />
-            
+            <input #name="ngModel"
+            maxlength="5" [(ngModel)]="todo.title" class="form-control" type="text" id="title" name="title" placeholder="title" required />
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name is required
+            </div>
         </div>
-        <input [(ngModel)]="todo.description" type="text" name="description" placeholder="description" required/>
+        <input [(ngModel)]="todo.description" class="form-control" type="text" name="description" placeholder="description"
+          />
+            <button class="btn btn-submit" [disabled]="!todoForm.valid" (click)="submit();info()">submit</button>
     </form>
 </div>
 

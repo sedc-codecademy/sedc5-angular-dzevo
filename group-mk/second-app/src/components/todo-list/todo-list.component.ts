@@ -9,22 +9,46 @@ import { Todo } from "../../models/todo"
 export class TodoListComponent implements OnInit {
 
 
-    todoItem: Array<Todo>;
+    todoItems: Array<Todo>;
+    todoToEdit: Todo;
 
-    isControlValid(ngFormReference: NgForm, controlName: string): boolean {
-        return (ngFormReference.controls[ controlName ] && ngFormReference.controls[ controlName ].valid) ? true : false;
+
+    edit(todo: Todo) {
+        this.todoToEdit = JSON.parse(JSON.stringify(todo));
+    }
+    cancelEdit() {
+        this.todoToEdit = null;
     }
 
+    update(todo: Todo) {
+        var index = this.todoItems.findIndex(x => x.id == todo.id);
+        this.todoItems[ index ] = JSON.parse(JSON.stringify(todo));
+        this.todoToEdit = null;
+
+    }
     ngOnInit() {
-      
+        this.todoItems = [
+            {
+                id: "id1",
+                title: "title1",
+                description: "desc1"
+            },
+            {
+                id: "id2",
+                title: "title2",
+                description: "desc2"
+            },
+            {
+                id: "id3",
+                title: "title3",
+                description: "desc3"
+            }
+        ];
     }
 
     addNew() {
-      
+
     }
 
-    edit(){
-        
-    }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from "@angular/core";
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Todo } from "../../models/todo"
 
@@ -11,27 +11,28 @@ export class TodoComponent implements OnInit {
     @ViewChild("todoForm")
     todoForm: NgForm;
 
+    @Output()
+    todoSubmited: EventEmitter<Todo> = new EventEmitter<Todo>();
+    @Output()
+    todoCanceled: EventEmitter<any> = new EventEmitter<any>();
+
+    @Input()
     todoItem: Todo;
 
     isControlValid(ngFormReference: NgForm, controlName: string): boolean {
         return (ngFormReference.controls[ controlName ] && ngFormReference.controls[ controlName ].valid) ? true : false;
     }
-
-    ngOnInit() {
-        if (this.todoForm && this.todoForm.control) {
-
-        }
-
+    constructor() {
         this.todoItem = new Todo();
     }
 
+    ngOnInit() {
+    }
+    cancel() {
+        this.todoCanceled.emit();
+    }
     submit() {
-        console.log(this.todoForm);
-        console.log(this.todoForm.controls);
-        console.log(this.todoForm.controls[ "title" ]);
-        console.log(this.todoForm.controls[ "title" ].valid);
-
-
+        this.todoSubmited.emit(this.todoItem);
     }
 
 }

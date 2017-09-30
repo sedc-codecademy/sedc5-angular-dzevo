@@ -1,0 +1,14 @@
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input [(ngModel)]="todo.title" type="text" id="title" name="title" placeholder="title" required />
+            
+        </div>
+        <input [(ngModel)]="todo.description" type="text" name="description" placeholder="description" required/>
+    </form>
+</div>
+
+
+<h1>Title: {{todo.title}}</h1>
+<h1>Description: {{todo.description}}</h1>

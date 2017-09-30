@@ -2,13 +2,7 @@ import { ViewChild, Component } from '@angular/core';
 import { Product, ProductsComponent } from "./components/products/products.component"
 @Component({
   selector: 'app-root',
-  template: `
-  <button (click)="handleClick()" >do something</button>
-  <h1>productID at parentComponent: {{product.id}}</h1>
-  <products #child [productChild]="product"
-  (productChanged)="handleProductChanged($event)"
-  ></products>
-`
+  templateUrl : "./app.component.html"
 })
 export class AppComponent {
   product: Product = { id: "ketchup" };

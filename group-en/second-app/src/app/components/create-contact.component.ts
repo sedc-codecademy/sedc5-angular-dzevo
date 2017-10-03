@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, Input } from "@angular/core"
-import { NgForm } from "@angular/forms";
+import { NgForm, FormGroup, FormControl } from "@angular/forms";
 import { Contact } from "../models/contact";
 @Component({
     selector: "create-contact",
@@ -9,11 +9,13 @@ export class CreateContactComponent implements OnInit {
     @Input()
     contact: Contact = Contact.empty();
     
-    @ViewChild("contactForm")
-    contactForms: NgForm;
+    contactForms: FormGroup = new FormGroup({
+        name: new FormControl(),
+        phoneNumber: new FormControl()
+    });
 
     ngOnInit() {
         console.log(this.contactForms);
-     }
+    }
 
 }

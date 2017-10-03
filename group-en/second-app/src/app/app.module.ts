@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -11,10 +11,10 @@ import { CreateContactComponent} from "./components/create-contact.component";
     CreateContactComponent,
     ContactListComponent
   ],
-  imports: [
-    
+  imports: [    
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [

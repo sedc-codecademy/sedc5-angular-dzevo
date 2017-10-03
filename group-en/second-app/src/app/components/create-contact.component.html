@@ -1,17 +1,21 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <form>
+            <form  #contactForm="ngForm" novalidate>
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input id="name" name="name" type="text" [(ngModel)]="contact.name" class="form-control" />
+                    <input required id="name" name="name" type="text" [(ngModel)]="contact.name" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label for="phoneNumber">Phone Number:</label>
-                    <input id="phoneNumber" name="phoneNumber" [(ngModel)]="contact.phoneNumber" type="text" class="form-control" />
+                    <input required id="phoneNumber" name="phoneNumber" [(ngModel)]="contact.phoneNumber" type="text" class="form-control" />
                 </div>
+                <!-- <div [hidden]="form.valid" >
+
+                </div> -->
+                <input type="submit" [disabled]="!contactForm.valid" class="btn btn-success" value="submit" />
             </form>
-            <p>{{ contact | json }}</p>
+            <p>{{ contactForms.value | json }}</p>
         </div>
     </div>
 </div>

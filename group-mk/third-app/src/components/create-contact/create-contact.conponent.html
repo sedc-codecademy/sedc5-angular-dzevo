@@ -1,9 +1,20 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <form [formGroup]="contactForm" novalidate>
-                <input type="text" formControlName="fullName" />
-                <input type="text" formControlName="phoneNumber" />
+            <form [formGroup]="contactForm" (ngSubmit)="createContact($event)" novalidate>
+                <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth:</label>
+                    <input type="text" #dp="bsDatepicker" [minDate]="minDate" bsDatepicker [(bsValue)]="bsValue">
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input id="fullName" class="form-control" type="text" formControlName="fullName" />
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input id="phoneNumber" class="form-control" type="text" formControlName="phoneNumber" />
+                </div>
+                <input [disabled]="!contactForm.valid" type="submit" class="btn btn-warning" value="Create" />
             </form>
             <p>{{ contact | json }}</p>
             <p>{{ contactForm.value | json }}</p>

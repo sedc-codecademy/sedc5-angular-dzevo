@@ -1,1 +1,4 @@
-<create-contact></create-contact>
+<ul>
+    <li *ngFor="let item of menuItems" (click)="navigateToRoute(item)">{{item }}</li>
+</ul>
+<router-outlet></router-outlet>

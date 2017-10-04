@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form [formGroup]="contactForm" novalidate>
+                <input type="text" formControlName="fullName" />
+                <input type="text" formControlName="phoneNumber" />
+            </form>
+            <p>{{ contact | json }}</p>
+            <p>{{ contactForm.value | json }}</p>
+            <p>{{ contactForm.valid }}</p>
+        </div>
+    </div>
+</div>

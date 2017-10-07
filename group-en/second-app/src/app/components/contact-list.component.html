@@ -1,1 +1,17 @@
-contact list works
+<table class="table table-striped">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>PhoneNumber</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contact of contactList">
+            <td>{{contact.id}}</td>
+            <td>{{contact.name}}</td>
+            <td>{{contact.phoneNumber}}</td>
+            <td>action</td>
+        </tr>
+    </tbody>
+    <tfoot></tfoot>
+</table>

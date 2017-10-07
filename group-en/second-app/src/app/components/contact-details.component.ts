@@ -16,14 +16,15 @@ export class ContactDetailsComponent implements OnInit {
         private router: Router) {
     }
 
-    async ngOnInit() {
+    ngOnInit() {
         this.id = this.activatedROute.snapshot.params[ "id" ];
-        let contactFromService = await this.contactsService.get(this.id);
-        if (contactFromService) {
-            this.contact = contactFromService;
-        } else {
-            this.router.navigate([ "contact-list" ]);
-        }
+        this.contactsService.get(this.id).subscribe(data => {
+            if (data) {
+                this.contact = data;
+            } else {
+                this.router.navigate([ "contact-list" ]);
+            }
+        });
     }
 
 }

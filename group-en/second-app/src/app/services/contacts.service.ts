@@ -13,8 +13,7 @@ export class ContactsService {
     }
 
     public getAll() {
-
-        return this.http.get("http://localhost:3000/contacts")
+        return this.http.get("http://10.80.30.35:3000/contacts")
             .map(res => {
                 var result = res.json() as Contact[];
                 console.log(result);
@@ -24,8 +23,15 @@ export class ContactsService {
             });
     }
 
-    public get(id: string): Promise<Contact> {
-        return Promise.resolve(mockContacts.find(x => x.id === id));
+    public get(id: string): Observable<Contact> {
+        return this.http.get("http://10.80.30.35:3000/contacts/" + id)
+            .map(res => {
+                var result = res.json() as Contact;
+                console.log(result);
+                return result;
+            }, error => {
+                console.warn(error);
+            });
     }
 
 }

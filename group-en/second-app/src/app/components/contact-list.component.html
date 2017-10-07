@@ -10,7 +10,7 @@
             <td>{{contact.id}}</td>
             <td>{{contact.name}}</td>
             <td>{{contact.phoneNumber}}</td>
-            <td>action</td>
+            <td><button class="btn btn-warning" (click)="navigateToDetails(contact.id)">details</button></td>
         </tr>
     </tbody>
     <tfoot></tfoot>

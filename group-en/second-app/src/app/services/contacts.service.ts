@@ -1,18 +1,31 @@
 import { Contact } from "../models/contact";
+import { Http } from "@angular/http";
+import { Observable } from "rxjs";
+import "rxjs/add/operator/map";
 import { Injectable } from "@angular/core";
 import { mockContacts } from "./mock/mock-contacts";
 
 
 @Injectable()
 export class ContactsService {
-    flag: boolean;
+    constructor(private http: Http) {
 
-    public getAll(): Array<Contact> {
-        return mockContacts;
     }
 
-    public get(id: string): Contact {
-        return mockContacts.find(x => x.id === id);
+    public getAll() {
+
+        return this.http.get("http://localhost:3000/contacts")
+            .map(res => {
+                var result = res.json() as Contact[];
+                console.log(result);
+                return result;
+            }, error => {
+                console.warn(error);
+            });
+    }
+
+    public get(id: string): Promise<Contact> {
+        return Promise.resolve(mockContacts.find(x => x.id === id));
     }
 
 }

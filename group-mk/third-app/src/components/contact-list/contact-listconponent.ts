@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Contact } from "../../models/contact";
 import { Router } from "@angular/router";
+import { ContactService } from "../../services/contact.service";
+
 @Component({
     selector: "contact-list",
     templateUrl: "./contact-list.conponent.html"
@@ -8,7 +10,8 @@ import { Router } from "@angular/router";
 export class ContactListConponent implements OnInit {
     contactList: Contact[] = [];
 
-    constructor(private router: Router) {
+    constructor(private router: Router,
+        private contactService: ContactService) {
 
     }
 
@@ -17,18 +20,10 @@ export class ContactListConponent implements OnInit {
     }
 
     ngOnInit() {
-        this.contactList = [
-            {
-                id: "asdasd",
-                fullName: "jon doe",
-                phoneNumber: "+12345678"
-            },
-            {
-                id: "qweretawe",
-                fullName: "jon not doe",
-                phoneNumber: "+987654321"
-            }
-        ];
+        this.contactService.getAll().subscribe(data=>{
+            console.log(data);
+            this.contactList = data;
+        });
     }
 }
 

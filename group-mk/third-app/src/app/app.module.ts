@@ -4,11 +4,13 @@ import { RouterModule } from "@angular/router"
 import { NgModule } from '@angular/core';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { routes } from "./routes-config";
-// or
+import {HttpModule} from "@angular/http";
 import { AppComponent } from './app.component';
 import { CreateContactConponent } from "../components/create-contact/create-contact.conponent";
 import { ContactListConponent } from "../components/contact-list/contact-listconponent";
 import { ContactDetailsComponent } from "../components/contact-details/contact-details.component";
+import { ContactService } from "../services/contact.service";
+import { } from "Rxjs/add/operator/map"
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +23,12 @@ import { ContactDetailsComponent } from "../components/contact-details/contact-d
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    ContactService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

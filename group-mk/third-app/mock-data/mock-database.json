@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "id": "asdqwe",
+      "fullName": "john doe first",
+      "phoneNumber": "+123456789"
+    },
+    {
+      "id": "qweqwe",
+      "fullName": "john doe second",
+      "phoneNumber": "+98765432"
+    },
+    {
+      "id": "kljklj",
+      "fullName": "john doe third",
+      "phoneNumber": "+567123"
+    }
+  ]
+}

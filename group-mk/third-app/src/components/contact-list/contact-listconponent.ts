@@ -19,6 +19,10 @@ export class ContactListConponent implements OnInit {
         this.router.navigate([ "contact-details", id ]);
     }
 
+    navigateToEdit(id: string) {
+        this.router.navigate([ "create-contact", id ]);
+    }
+
     ngOnInit() {
         this.contactService.getAll().subscribe(data=>{
             console.log(data);

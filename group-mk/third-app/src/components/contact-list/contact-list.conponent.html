@@ -10,7 +10,9 @@
             <td>{{c.id}}</td>
             <td>{{c.fullName}}</td>
             <td>{{c.phoneNumber}}</td>
-            <td><button class="btn btn-danger" (click)="navigateToDetails(c.id)">edit</button></td>
+            <td><button class="btn btn-danger" (click)="navigateToEdit(c.id)">edit</button>
+                <button class="btn btn-danger" (click)="navigateToDetails(c.id)">details</button>
+            </td>
         </tr>
     </tbody>
     <tfoot>

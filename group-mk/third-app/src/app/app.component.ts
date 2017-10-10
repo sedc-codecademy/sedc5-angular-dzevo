@@ -13,7 +13,8 @@ export class AppComponent {
 
   menuItems: Array<string> = [
     "contact-list",
-    "create-contact"
+    "create-contact",
+    "contact-details"
   ]
 
   navigateToRoute(routeKey: string): void {

@@ -8,11 +8,13 @@ import { routes } from "./routes-config";
 import { AppComponent } from './app.component';
 import { CreateContactConponent } from "../components/create-contact/create-contact.conponent";
 import { ContactListConponent } from "../components/contact-list/contact-listconponent";
+import { ContactDetailsComponent } from "../components/contact-details/contact-details.component";
 @NgModule({
   declarations: [
     AppComponent,
     CreateContactConponent,
-    ContactListConponent
+    ContactListConponent,
+    ContactDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

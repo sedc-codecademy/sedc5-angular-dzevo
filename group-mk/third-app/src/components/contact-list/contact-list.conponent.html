@@ -1,1 +1,24 @@
-contact list works
+<table class="table table-striped">
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of contactList">
+            <td>{{c.id}}</td>
+            <td>{{c.fullName}}</td>
+            <td>{{c.phoneNumber}}</td>
+            <td><button class="btn btn-danger" (click)="navigateToDetails(c.id)">edit</button></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th></th>
+    </tfoot>
+</table>
+
+<p>{{ contactList | json }}</p>
